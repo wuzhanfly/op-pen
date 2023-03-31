@@ -29,11 +29,11 @@ export default function Withdraw({
   };
 
   let alert = "";
-  if (invalidSignerForTargetNetwork(crossChainMessenger, NETWORKS.kovanOptimism)) {
+  if (invalidSignerForTargetNetwork(crossChainMessenger, NETWORKS.penOptimism)) {
     alert = (
       <Alert
         style={{ marginTop: "20px" }}
-        message="Switch provider network to Optimistic Kovan to withdraw to L1"
+        message="Switch provider network to Optimistic pen to withdraw to L1(goerli)"
         type="error"
       />
     );
@@ -50,12 +50,12 @@ export default function Withdraw({
       }}
     >
       {alert}
-      <Card title="To Kovan" style={{ width: 300, marginTop: "20px" }}>
+      <Card title="To goerli" style={{ width: 300, marginTop: "20px" }}>
         Current Balance:
         <Balance balance={l1Balance} price={price} />
       </Card>
       ↑
-      <Card title="From Optimistic Kovan" style={{ width: 300 }}>
+      <Card title="From Optimistic Pen" style={{ width: 300 }}>
         Current Balance:
         <Balance balance={l2Balance} price={price} />
         <Input

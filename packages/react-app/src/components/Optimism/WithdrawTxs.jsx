@@ -74,7 +74,7 @@ export default function WithdrawTxs({ price, localProvider, mainnetProvider, wit
             <List.Item key={item.id} style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <Address address={item.to} ensProvider={mainnetProvider} fontSize={16} />
-                <div style={{ marginLeft: "auto" }}>{item.l2Token === ethL2Token ? "Ξ" : ""}</div>
+                <div style={{ marginLeft: "auto" }}>{item.l2Token === ethL2Token ? "=" : ""}</div>
                 <Balance balance={item.amount} provider={localProvider} price={price} />
               </div>
               <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>

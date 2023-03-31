@@ -38,11 +38,11 @@ export default function ERC20Withdraw({
   };
 
   let alert = "";
-  if (invalidSignerForTargetNetwork(crossChainMessenger, NETWORKS.kovanOptimism)) {
+  if (invalidSignerForTargetNetwork(crossChainMessenger, NETWORKS.penOptimism)) {
     alert = (
       <Alert
         style={{ marginTop: "20px" }}
-        message="Switch provider network to Optimistic Kovan to withdraw to L1"
+        message="Switch provider network to Optimistic Pen to withdraw to L1"
         type="error"
       />
     );
@@ -59,8 +59,8 @@ export default function ERC20Withdraw({
       }}
     >
       {alert}
-      <Card title="From Optimistic Kovan" style={{ width: 300, marginTop: "20px" }}>
-        <div>{`Current Balance on Optimistic Kovan: ${ethers.utils.formatEther(tokenBalance ?? 0)}`}</div>
+      <Card title="From Optimistic Pen" style={{ width: 300, marginTop: "20px" }}>
+        <div>{`Current Balance on Optimistic Pen: ${ethers.utils.formatEther(tokenBalance ?? 0)}`}</div>
         <Input
           style={{ width: "100px" }}
           placeholder="0.0"

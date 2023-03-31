@@ -8,15 +8,6 @@ import { Transactor } from "../helpers";
 /*
 This is a component for bridging between L1 & L2
 Currently it supports Testnet deposits for Arbitrum & Optimism
-
- __          _______ _____
- \ \        / /_   _|  __ \
-  \ \  /\  / /  | | | |__) |
-   \ \/  \/ /   | | |  ___/
-    \  /\  /   _| |_| |
-     \/  \/   |_____|_|
-
-
 */
 
 export default function L2ArbitrumBridge({ address, userSigner }) {
@@ -29,13 +20,12 @@ export default function L2ArbitrumBridge({ address, userSigner }) {
 
   const rollupConfig = {
     arbitrum: {
-      test: { L1: NETWORKS.rinkeby, L2: NETWORKS.rinkebyArbitrum },
+      test: { L1: NETWORKS.goerli, L2: NETWORKS.goerliArbitrum },
       main: { L1: NETWORKS.mainnet, L2: NETWORKS.arbitrum },
-      local: { L1: NETWORKS.localArbitrumL1, L2: NETWORKS.localArbitrum },
     },
     optimism: {
-      test: { L1: NETWORKS.kovan, L2: NETWORKS.kovanOptimism },
-      local: { L1: NETWORKS.localOptimismL1, L2: NETWORKS.localOptimism },
+      test: { L1: NETWORKS.goerli, L2: NETWORKS.penOptimism },
+      main: { L1: NETWORKS.mainnet, L2: NETWORKS.optimism },
     },
   };
 
@@ -117,8 +107,8 @@ export default function L2ArbitrumBridge({ address, userSigner }) {
     {
       key: "1",
       token: "ETH",
-      l1: "Ξ" + L1EthBalance,
-      l2: "Ξ" + L2EthBalance,
+      l1: "=" + L1EthBalance,
+      l2: "=" + L2EthBalance,
     },
   ];
 
@@ -129,9 +119,9 @@ export default function L2ArbitrumBridge({ address, userSigner }) {
   };
 
   async function onFinish(values) {
-    console.log(contracts);
-    console.log(values.amount.toString());
-    console.log(rollup);
+    console.log("contracts:", contracts);
+    console.log("amount:", values.amount.toString());
+    console.log("rollup-=>:", rollup);
     let newTx;
     try {
       if (rollup === "arbitrum") {
@@ -388,35 +378,27 @@ const OVM_L1StandardBridgeABI = [
 
 const L1BridgeMetadata = {
   // Arbitrium Contract's
-  44010: {
-    contracts: {
-      Inbox: {
-        address: "0xA4d796Ad4e79aFB703340a596AEd88f8a5924183",
-        abi: ArbitrumInboxABI,
-      },
-    },
-  },
-  4: {
-    contracts: {
-      Inbox: {
-        address: "0x578bade599406a8fe3d24fd7f7211c0911f5b29e",
-        abi: ArbitrumInboxABI,
-      },
-    },
-  },
+  // 44010: {
+  //   contracts: {
+  //     Inbox: {
+  //       address: "0xA4d796Ad4e79aFB703340a596AEd88f8a5924183",
+  //       abi: ArbitrumInboxABI,
+  //     },
+  //   },
+  // },
+  // 4: {
+  //   contracts: {
+  //     Inbox: {
+  //       address: "0x578bade599406a8fe3d24fd7f7211c0911f5b29e",
+  //       abi: ArbitrumInboxABI,
+  //     },
+  //   },
+  // },
   // Optimism Contract's
-  31337: {
+  5: {
     contracts: {
       OVM_L1StandardBridge: {
-        address: "0x998abeb3E57409262aE5b751f60747921B33613E",
-        abi: OVM_L1StandardBridgeABI,
-      },
-    },
-  },
-  42: {
-    contracts: {
-      OVM_L1StandardBridge: {
-        address: "0x22F24361D548e5FaAfb36d1437839f080363982B",
+        address: "0xD267904d2D4b6FD38a41Fb2fA547C2A5E124f142",
         abi: OVM_L1StandardBridgeABI,
       },
     },

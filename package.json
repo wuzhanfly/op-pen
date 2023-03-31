@@ -2,9 +2,11 @@
   "name": "@op-pen/monorepo",
   "version": "1.0.0",
   "keywords": [
+    "ethereum",
     "react",
-    "yarn",
-    "optimism-sdk"
+    "uniswap",
+    "workspaces",
+    "yarn"
   ],
   "private": true,
   "scripts": {

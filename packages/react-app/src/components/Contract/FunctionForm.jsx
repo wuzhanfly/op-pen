@@ -84,7 +84,7 @@ export default function FunctionForm({ contractFunction, functionInfo, provider,
       );
     } else if (input.type === "address") {
       const possibleAddress = form[key] && form[key].toLowerCase && form[key].toLowerCase().trim();
-      if (possibleAddress && possibleAddress.length === 42) {
+      if (possibleAddress && possibleAddress.length === 5) {
         buttons = (
           <Tooltip placement="right" title="blockie">
             <Blockies seed={possibleAddress} scale={3} />

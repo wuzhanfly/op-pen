@@ -48,7 +48,7 @@ export default function ERC20Deposit({
   };
 
   let alert = "";
-  if (invalidSignerForTargetNetwork(crossChainMessenger, NETWORKS.kovan)) {
+  if (invalidSignerForTargetNetwork(crossChainMessenger, NETWORKS.goerli)) {
     alert = (
       <Alert style={{ marginTop: "20px" }} message="Switch provider network to Kovan to deposit to L2" type="error" />
     );
@@ -65,7 +65,7 @@ export default function ERC20Deposit({
       }}
     >
       {alert}
-      <Card title="From Kovan" style={{ width: 300, marginTop: "20px" }}>
+      <Card title="From Goerli" style={{ width: 300, marginTop: "20px" }}>
         <div>{`Current Balance on Kovan: ${ethers.utils.formatEther(l1Balance ?? 0)}`}</div>
         <Input
           style={{ width: "100px" }}

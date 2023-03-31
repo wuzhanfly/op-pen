@@ -29,9 +29,9 @@ export default function Deposit({
   };
 
   let alert = "";
-  if (invalidSignerForTargetNetwork(crossChainMessenger, NETWORKS.kovan)) {
+  if (invalidSignerForTargetNetwork(crossChainMessenger, targetNetwork)) {
     alert = (
-      <Alert style={{ marginTop: "20px" }} message="Switch provider network to Kovan to deposit to L2" type="error" />
+      <Alert style={{ marginTop: "20px" }} message="Switch provider network to goerli to deposit to L2" type="error" />
     );
   }
 
@@ -46,7 +46,7 @@ export default function Deposit({
       }}
     >
       {alert}
-      <Card title="From Kovan" style={{ width: 300, marginTop: "20px" }}>
+      <Card title="From Goerli" style={{ width: 300, marginTop: "20px" }}>
         Current Balance:
         <Balance balance={l1Balance} price={price} />
         <Input
@@ -60,7 +60,7 @@ export default function Deposit({
         </Button>
       </Card>
       ↓
-      <Card title="To Optimistic Kovan" style={{ width: 300 }}>
+      <Card title="To Optimistic Pen" style={{ width: 300 }}>
         Current Balance:
         <Balance balance={l2Balance} price={price} />
       </Card>

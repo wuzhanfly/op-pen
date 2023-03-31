@@ -14,7 +14,7 @@ export default function DepositTxs({ deposits, mainnetProvider, localProvider, p
             return (
               <List.Item key={item.transactionHash} style={{ display: "flex" }}>
                 <Address address={item.to} ensProvider={mainnetProvider} fontSize={16} />
-                <div style={{ marginLeft: "auto" }}>{item.l2Token === ethL2Token ? "Ξ" : ""}</div>
+                <div style={{ marginLeft: "auto" }}>{item.l2Token === ethL2Token ? "=" : ""}</div>
                 <Balance balance={item.amount} provider={localProvider} price={price} />
               </List.Item>
             );
